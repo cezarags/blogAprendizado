@@ -1,2 +1,2 @@
 # blogAprendizado
-BlogPessoal criando com Angular e BootStrap
+BlogPessoal criado com Angular e BootStrap
