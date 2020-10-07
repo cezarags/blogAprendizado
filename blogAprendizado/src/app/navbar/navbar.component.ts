@@ -9,6 +9,8 @@ import { AuthService } from '../service/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+    showFiller = false;
+
   constructor(
     private router: Router,
     public auth: AuthService

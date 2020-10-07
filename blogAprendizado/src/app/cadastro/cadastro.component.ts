@@ -12,7 +12,7 @@ export class CadastroComponent implements OnInit {
 
 
   usuario: Usuario = new Usuario()
-  senha: String
+  senha: string
 
   constructor(
     private authService: AuthService,
@@ -24,25 +24,24 @@ export class CadastroComponent implements OnInit {
 
   }
 
-  conferirSenha(event: any){
+  conferirSenha(event: any) {
     this.senha = event.target.value
 
   }
 
 
-  cadastrar(){
-    if (this.senha === this.usuario.senha){
-      this.authService.cadastrar(this.usuario).subscribe((resp:Usuario) =>{
-        this.usuario =resp
-        this.router.navigate(['/login'])
-        alert('Usuario cadastrado com sucesso')
+  cadastrar() {
+    if ( this.senha === this.usuario.senha ) {
+      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+        this.usuario = resp
+        alert('Usuário cadastrado com sucesso!')
+        this.router.navigate(['/logar'])
+        
       })
     } else {
-
-      alert('Suas senha não conferem')
-
-
+      alert('senhas não são identicas')
     }
   }
 
-}    
+}
+

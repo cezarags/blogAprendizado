@@ -19,7 +19,7 @@ export class AuthService {
     }
 
     cadastrar(usuario: Usuario){
-    return this.http.post('http://localhost:8080/usuarios/logar', usuario)
+    return this.http.post('http://localhost:8080/usuarios/cadastrar', usuario)
 
     }
 
@@ -28,7 +28,7 @@ export class AuthService {
       let token = localStorage.getItem('token')
 
 
-      if (token !=null){
+      if (token != null){
         ok = true
       }
 
@@ -43,7 +43,7 @@ export class AuthService {
       let token = localStorage.getItem('token')
 
 
-      if (token ==null){
+      if (token == null){
         ok = true
       }
 
