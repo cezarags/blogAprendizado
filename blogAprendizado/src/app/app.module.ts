@@ -22,6 +22,7 @@ import { PutTemaComponent } from './put-tema/put-tema.component';
 import { DeletePostagemComponent } from './delete-postagem/delete-postagem.component';
 import { DeleteTemaComponent } from './delete-tema/delete-tema.component';
 import { AlertasComponent } from './alertas/alertas.component';
+import { HashLocationStrategy, LocationStrategy} from '@angular/common'
 
 
 @NgModule({
@@ -51,7 +52,13 @@ import { AlertasComponent } from './alertas/alertas.component';
     OrderModule,
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
