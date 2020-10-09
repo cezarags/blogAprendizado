@@ -9,7 +9,7 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./post-tema.component.css']
 })
 export class PostTemaComponent implements OnInit {
-  tema: Tema = new  Tema()
+  tema: Tema = new Tema()
   listaTemas: Tema[]
 
   constructor(
