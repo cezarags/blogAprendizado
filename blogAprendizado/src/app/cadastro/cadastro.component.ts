@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,7 +17,8 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alert: AlertasService
 
   ) { }
 
@@ -34,12 +36,12 @@ export class CadastroComponent implements OnInit {
     if ( this.senha === this.usuario.senha ) {
       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        alert('Usuário cadastrado com sucesso!')
+        this.alert.showAlertSucess('Usuário cadastrado com sucesso!')
         this.router.navigate(['/logar'])
         
       })
     } else {
-      alert('senhas não são identicas')
+      this.alert.showAlertDanger('senhas não são identicas')
     }
   }
 

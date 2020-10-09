@@ -2,6 +2,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Postagem } from '../model/Postagem';
+import { AlertasService } from '../service/alertas.service';
 import { PostagemService } from './../service/postagem.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class DeletePostagemComponent implements OnInit {
   constructor(
     private postagemService: PostagemService,
     private router: Router,
+    private alert: AlertasService,
     private route: ActivatedRoute
+    
   ) { }
 
   ngOnInit() {
@@ -36,7 +39,7 @@ export class DeletePostagemComponent implements OnInit {
   btnSim(){
     this.postagemService.deletePostagem(this.postagem.id).subscribe(() =>{
     this.router.navigate(['/feed'])
-    alert('Postagem apagada com sucesso')
+    this.alert.showAlertSucess('Postagem apagada com sucesso')
 
     })
 

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { type } from 'os';
+
 
 @Component({
   selector: 'app-alertas',
@@ -10,7 +10,7 @@ import { type } from 'os';
 export class AlertasComponent implements OnInit {
 
   @Input() message: string
-  @Input() type = type
+  @Input() type = 'sucess'
   constructor(public modal: BsModalRef) { }
 
   ngOnInit(): void {
